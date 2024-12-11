@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Submission | Chef's Smooch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-nav {
+            margin: 0 auto;
+        }
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+        .navbar-brand {
+            font-weight: bold; 
+            font-size: 20px; 
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://thumbs.dreamstime.com/b/chef-logo-icon-isolated-dark-background-simple-vector-214804180.jpg" alt="Chef's Smooch Logo" width="70">
+                Chef's Smooch
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="recipe.html">Categorized Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="submi.html">Submission of Recipes</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control" type="search" placeholder="Search recipes..." aria-label="Search">
+                    <button class="btn btn-success ms-2" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- basic form code-->
+
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center mb-4">Submit Your Recipe</h1>
+        <form id="recipeForm">
+            <div class="mb-3">
+                <label for="recipeName" class="form-label">Recipe Name</label>
+                <input type="text" class="form-control" id="recipeName" placeholder="Enter the recipe name" required>
+            </div>
+            <div class="mb-3">
+                <label for="authorName" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="authorName" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label for="recipeIngredients" class="form-label">Ingredients</label>
+                <textarea class="form-control" id="recipeIngredients" rows="4" placeholder="List the ingredients, separated by commas" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="recipeInstructions" class="form-label">Instructions</label>
+                <textarea class="form-control" id="recipeInstructions" rows="6" placeholder="Write step-by-step instructions" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Recipe</button>
+        </form>
+        <div id="confirmationAlert" class="alert alert-success mt-4 d-none" role="alert">
+            Thank you! Your recipe has been submitted successfully.
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <p>&copy; 2024 Chef's Smooch. All Rights Reserved.</p>
+    </footer>
+
+
+    <!--javascript code that will alert the website someone submitted smth-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const form = document.getElementById('recipeForm');
+        const confirmationAlert = document.getElementById('confirmationAlert');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            confirmationAlert.classList.remove('d-none');
+            form.reset();
+        });
+    </script>
+</body>
+</html>
